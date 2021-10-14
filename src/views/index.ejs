@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PicWiz</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"
+      integrity="sha512-JjFeUD2H//RHt+DjVf1BTuy1X5ZPtMl0svQ3RopX641DWoSilJ89LsFGq4Sw/6BSBfULqUW/CfnVopV5CfvRXA=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>PicWiz</h1>
+    <div class="editor">
+      <div class="tools">
+        <button id="save">Save</button>
+        <button id="reset">Reset</button>
+        <div id="cropFeature">
+          <p><%= typeof msg != 'undefined' ? msg : '' %></p>
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input name="myImage" type="file" id="load" />
+            <button type="submit" class="button">Submit</button>
+          </form>
+          <input
+            type="text"
+            id="width"
+            placeholder="Enter width of your cropped image"
+          /><br />
+          <input
+            type="text"
+            id="height"
+            placeholder="Enter height of your cropped image"
+          /><br />
+          <input
+            type="text"
+            id="x"
+            placeholder="Enter starting x location for your cropped image"
+          /><br />
+          <input
+            type="text"
+            id="y"
+            placeholder="Enter starting y location for your cropped image"
+          /><br />
+          <button id="preview">Preview</button>
+          <button id="crop">Crop and Continue</button>
+          <button id="continuebutton">Continue</button>
+        </div>
+        <button id="effectheading">Effects ></button>
+        <div id="filtersliders">
+          <p>
+            <label for="brightness">Brightness</label>
+            <input
+              id="brightness"
+              name="brightness"
+              type="range"
+              min="-100"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="vibrance">Vibrance</label>
+            <input
+              id="vibrance"
+              name="vibrance"
+              type="range"
+              min="-100"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="exposure">Exposure</label>
+            <input
+              id="exposure"
+              name="exposure"
+              type="range"
+              min="-100"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="hue">Hue</label>
+            <input
+              id="hue"
+              name="hue"
+              type="range"
+              min="-100"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="saturation">Saturation</label>
+            <input
+              id="saturation"
+              name="saturation"
+              type="range"
+              min="-100"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="sepia">Sepia</label>
+            <input
+              id="sepia"
+              name="sepia"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="gamma">Gamma</label>
+            <input
+              id="gamma"
+              name="gamma"
+              type="range"
+              min="0"
+              max="10"
+              value="0"
+            />
+          </p>
+          <p>
+            <label for="noise">Noise</label>
+            <input
+              id="noise"
+              name="noise"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </p>
+          </div>
+          <button id="filterheadingbutton">Filters ></button>
+          <div id="filterbuttons">
+          <button id="vintage" class="filter">Vintage</button>
+          <button id="lomo" class="filter">Lomo</button>
+          <button id="clarity" class="filter">Clarity</button>
+          <button id="orangePeel" class="filter">Orange Peel</button>
+          <button id="greyscale" class="filter">Greyscale</button>
+          <button id="invert" class="filter">Invert</button>
+          </div>
+          <button id="textheading">Add Text ></button>
+          <div id="text">
+          <h4>Add a message over your image:</h4>
+          <input type="text" id="message" placeholder="Type a message" />
+          <button id="submit">Add Text!</button>
+        </div>
+      </div>
+      <img
+        id="image"
+        src="<%= typeof file != 'undefined' ? file : '' %>"
+      />
+    </div>
+  </body>
+</html>
