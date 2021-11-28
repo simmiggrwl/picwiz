@@ -25,6 +25,6 @@ const Router = require("./src/routes/editor");
 app.use("/", Router);
 app.use("/article", Router);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
